@@ -50,5 +50,8 @@ sudo usermod -a -G audio $USER
 sudo apt-get install -y flite
 pip install requests
 
+sudo apt-get update
+sudo apt-get install -y pulseaudio-module-bluetooth bluez-tools
+
 echo "--- Setup Complete! ---"
 cat $LOG_FILE
