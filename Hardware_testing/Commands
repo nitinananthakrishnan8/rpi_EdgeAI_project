@@ -1,0 +1,5 @@
+cd ~/Desktop/SignLanguageEdge
+# Unzip the test set into a folder
+unzip pi_test_set.zip -d pi_test_set
+# Run the benchmark script we wrote before
+python3 hardware_benchmark.py
