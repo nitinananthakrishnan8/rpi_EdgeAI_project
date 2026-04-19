@@ -2,8 +2,8 @@ import requests
 import datetime
 
 # --- CONFIGURATION ---
-API_KEY = " "
-CITY = " "  # Change to your city
+API_KEY = "6b2d94fc30d893cb3e8eb22bdbf9c677"
+CITY = "Coimbatore"  # Change to your city
 
 def get_daily_briefing():
     # 1. TIME LOGIC (Calculated locally)

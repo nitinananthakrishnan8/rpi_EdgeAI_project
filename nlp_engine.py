@@ -21,7 +21,7 @@ class NLPEngine:
         self.context_dict = {
             ("Pointing", "Yes"): "Yes, that is exactly the one I want.",
             ("Hello", "L"): "Hello, this is an emergency! Please help me.",
-            ("Hello", "Thumbsup"): "TRIGGER_API" # Handled in logic below
+            ("Hello", "Yes"): "TRIGGER_API" # Handled in logic below
         }
 
     def speak_text(self, text):
@@ -35,9 +35,11 @@ class NLPEngine:
         
         sentence = ""
         # Context Check
-        if self.previous_sign == "Hello" and current_sign == "Thumbsup":
-            sentence = services.get_daily_briefing()
-            self.previous_sign = None
+        # Inside nlp_engine.py
+        if self.previous_sign == "Hello" and current_sign == "Yes":
+    # This triggers the API call in services.py
+            sentence = services.get_daily_briefing() 
+            self.speak_text(sentence)
         elif self.previous_sign is not None and (self.previous_sign, current_sign) in self.context_dict:
             sentence = self.context_dict[(self.previous_sign, current_sign)]
             self.previous_sign = None
